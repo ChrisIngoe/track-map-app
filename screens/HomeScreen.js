@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Platform, StyleSheet, View, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import GpsLocation from '../components/GpsLocation';
 
 export default function HomeScreen() {
   const onPressStart = () => {
@@ -22,6 +23,10 @@ export default function HomeScreen() {
 
         <View style={styles.controllerContainer}>
           <Button onPress={onPressStop} title="Stop Tracking" color="#841584" accessibilityLabel="Stop tracking" />
+        </View>
+
+        <View style={styles.controllerContainer}>
+          <GpsLocation />
         </View>
       </ScrollView>
     </View>
