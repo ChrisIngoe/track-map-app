@@ -1,9 +1,13 @@
-import React from 'react';
-import { Image, Platform, StyleSheet, View, Button } from 'react-native';
+import React, { useContext } from 'react';
+import { Image, Platform, StyleSheet, View, Button, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import GpsLocation from '../components/GpsLocation';
+//import GpsLocation from '../components/GpsLocation';
+//import BackgroundLocation from '../components/BackgroundLocation';
+import { LocationContext } from '../components/LocationContext';
 
 export default function HomeScreen() {
+  const { locations } = useContext(LocationContext);
+
   const onPressStart = () => {
     console.log('Start pressed');
   };
@@ -26,7 +30,7 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.controllerContainer}>
-          <GpsLocation />
+          <Text>{JSON.stringify(locations)}</Text>
         </View>
       </ScrollView>
     </View>
