@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View, YellowBox } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -13,6 +13,10 @@ export default function App(props) {
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
+        console.disableYellowBox = true;
+        //console.ignoredYellowBox = [];
+        //YellowBox.ignoreWarnings(['Warning:']);
+
         SplashScreen.preventAutoHide();
 
         // Load fonts
