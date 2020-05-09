@@ -13,10 +13,6 @@ export default function App(props) {
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
-        console.disableYellowBox = true;
-        //console.ignoredYellowBox = [];
-        //YellowBox.ignoreWarnings(['Warning:']);
-
         SplashScreen.preventAutoHide();
 
         // Load fonts
@@ -24,6 +20,10 @@ export default function App(props) {
           ...Ionicons.font,
           'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
         });
+
+        console.disableYellowBox = true;
+        //console.ignoredYellowBox = [];
+        //YellowBox.ignoreWarnings(['Warning:']);
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         console.warn(e);
