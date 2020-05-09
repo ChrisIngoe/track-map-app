@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import PostLocation from '../services/api';
 
 export const LocationContext = createContext();
 
@@ -7,6 +8,7 @@ const LocationProvider = (props) => {
 
   const setNewLocations = (newLocations) => {
     setLocations(newLocations);
+    PostLocation(locations[0]);
   };
 
   return <LocationContext.Provider value={{ locations, setNewLocations }}>{props.children}</LocationContext.Provider>;
