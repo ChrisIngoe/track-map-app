@@ -8,7 +8,7 @@ const LocationProvider = (props) => {
 
   const setNewLocations = (newLocations) => {
     setLocations(newLocations);
-    PostLocation(locations[0]);
+    if (newLocations && newLocations.length > 0) PostLocation(locations[0]);
   };
 
   return <LocationContext.Provider value={{ locations, setNewLocations }}>{props.children}</LocationContext.Provider>;

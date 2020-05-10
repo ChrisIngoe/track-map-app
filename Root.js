@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import useLinking from './navigation/useLinking';
@@ -18,19 +18,14 @@ export default function Root(props) {
 
   TaskManager.defineTask(LOCATION_TASK_NAME, ({ data: { locations }, error }) => {
     if (error) {
-      // Error occurred - check `error.message` for more details.
       return;
     }
     if (locations) {
-      //console.log(JSON.stringify(locations));
       setNewLocations(locations);
-      //setNewLocations(locations);
-      // do something with the locations captured in the background
     }
   });
 
-  // Load any resources or data that we need prior to rendering the app
-  React.useEffect(() => {
+  useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
         // Load our initial navigation state
@@ -39,7 +34,6 @@ export default function Root(props) {
         await Location.requestPermissionsAsync();
         await Location.startLocationUpdatesAsync(LOCATION_TASK_NAME);
       } catch (e) {
-        // We might want to provide this error information to an error reporting service
         console.warn(e);
       } finally {
       }

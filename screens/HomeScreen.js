@@ -1,8 +1,6 @@
 import React from 'react';
 import { Image, Platform, StyleSheet, View, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-//import GpsLocation from '../components/GpsLocation';
-//import BackgroundLocation from '../components/BackgroundLocation';
 import LocationText from '../components/LocationText';
 
 export default function HomeScreen() {
