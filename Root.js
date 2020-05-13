@@ -32,7 +32,7 @@ export default function Root(props) {
         setInitialNavigationState(await getInitialState());
 
         await Location.requestPermissionsAsync();
-        await Location.startLocationUpdatesAsync(LOCATION_TASK_NAME);
+        await Location.startLocationUpdatesAsync(LOCATION_TASK_NAME, { accuracy: Location.Accuracy.High });
       } catch (e) {
         console.warn(e);
       } finally {
